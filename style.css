@@ -1,0 +1,59 @@
+:root {
+    --item-size: 60px;
+    --carousel-size: 300px;
+    --item-count: 5;
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .carousel {
+    position: relative;
+    width: var(--carousel-size);
+    height: var(--carousel-size);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    width: var(--item-size);
+    height: var(--item-size);
+    top: 50%;
+    left: 50%;
+    margin: calc(var(--item-size) / -2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: lightblue;
+    transform-origin: 50% calc(-1 * var(--carousel-size) / 2 + var(--item-size) / 2);
+  }
+  
+  .item-content {
+    transform: rotate(0deg); /* This will be dynamically counter-rotated in JavaScript */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .carousel {
+    --angle-step: calc(360deg / var(--item-count));
+  }
+  
+  .carousel-item:nth-child(1) { --angle: calc(0 * var(--angle-step)); }
+  .carousel-item:nth-child(2) { --angle: calc(1 * var(--angle-step)); }
+  .carousel-item:nth-child(3) { --angle: calc(2 * var(--angle-step)); }
+  .carousel-item:nth-child(4) { --angle: calc(3 * var(--angle-step)); }
+  .carousel-item:nth-child(5) { --angle: calc(4 * var(--angle-step)); }
+  
